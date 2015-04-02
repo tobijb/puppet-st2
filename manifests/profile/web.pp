@@ -19,7 +19,7 @@
 #  include ::nginx
 #
 class st2::profile::web(
-  $st2_api_server = $::ipaddress,
+  $st2_api_server = hiera('st2::st2_api_server', $::ipaddress),
   $version        = $::st2::version,
 ) inherits st2 {
   file { [
